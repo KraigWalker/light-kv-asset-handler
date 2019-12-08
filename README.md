@@ -6,7 +6,7 @@ Add this package to your `package.json` by running this in the root of your
 project's directory:
 
 ```
-npm i @cloudflare/kv-asset-handler
+npm i @kraigwalker/light-kv-asset-handler
 ```
 
 ## Usage

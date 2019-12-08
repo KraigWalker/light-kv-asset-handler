@@ -1,5 +1,5 @@
 {
-  "name": "@cloudflare/kv-asset-handler",
+  "name": "@kraigwalker/light-kv-asset-handler",
   "version": "0.0.7",
   "description": "Routes requests to KV assets",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cloudflare/workers-site-npm-pkg.git"
+    "url": "https://github.com/KraigWalker/light-kv-asset-handler.git"
   },
   "keywords": [
     "kv",
@@ -20,7 +20,7 @@
     "wrangler",
     "assets"
   ],
-  "author": "Avery Harnish",
+  "author": "Kraig Walker",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cloudflare/kv-asset-handler/issues"

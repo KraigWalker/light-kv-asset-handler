@@ -149,13 +149,13 @@ const getAssetFromKV = async (event: FetchEvent, options?: Partial<Options>) => 
 
   if (response) {
     let headers = new Headers(response.headers)
-    headers.set('CF-Cache-Status', 'HIT')
+    //headers.set('CF-Cache-Status', 'HIT')
     if (shouldSetBrowserCache) {
-      headers.set('cache-control', `max-age=${options.cacheControl.browserTTL}`)
+     // headers.set('cache-control', `max-age=${options.cacheControl.browserTTL}`)
     } else {
       // don't assume we want same cache behavior of edge TTL on client
       // so remove the header from the response we'll return
-      headers.delete('cache-control')
+      // headers.delete('cache-control')
     }
     response = new Response(response.body, { headers })
   } else {
@@ -168,17 +168,17 @@ const getAssetFromKV = async (event: FetchEvent, options?: Partial<Options>) => 
     // TODO: could implement CF-Cache-Status REVALIDATE if path w/o hash existed in manifest
 
     if (shouldEdgeCache) {
-      response.headers.set('CF-Cache-Status', 'MISS')
+      //response.headers.set('CF-Cache-Status', 'MISS')
       // determine Cloudflare cache behavior
-      response.headers.set('Cache-Control', `max-age=${options.cacheControl.edgeTTL}`)
+      //response.headers.set('Cache-Control', `max-age=${options.cacheControl.edgeTTL}`)
       event.waitUntil(cache.put(cacheKey, response.clone()))
     }
   }
   response.headers.set('Content-Type', mimeType)
   if (shouldSetBrowserCache) {
-    response.headers.set('Cache-Control', `max-age=${options.cacheControl.browserTTL}`)
+    //response.headers.set('Cache-Control', `max-age=${options.cacheControl.browserTTL}`)
   } else {
-    response.headers.delete('Cache-Control')
+   // response.headers.delete('Cache-Control')
   }
   return response
 }
